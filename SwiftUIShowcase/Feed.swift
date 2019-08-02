@@ -15,12 +15,10 @@ struct Feed:View {
         NavigationView {
             List {
                 ForEach(stories, id: \.id) { story in
-                    NavigationLink(destination:Text("Hello")) {
+
                         StoryRow(story:story)
-                    }
                 }
                 .onDelete(perform: delete)
-                .padding(.leading, -25)
                 .navigationBarTitle(Text("Instagram"))
             }
         }

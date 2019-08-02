@@ -11,6 +11,7 @@ import SwiftUI
 struct StoryImage:View {
     var body: some View {
         Image("storyimage")
+        .resizable()
         .aspectRatio(contentMode: .fit)
         .cornerRadius(12)
         .shadow(radius:3)
@@ -54,20 +55,19 @@ struct StoryDetail:View {
         VStack {
             HStack(alignment:.top) {
                 Image(systemName:"pencil.tip").padding(.top, 2)
-                
+
                 Text(text)
                     .font(.caption)
                     .lineLimit(nil)
 
                 Spacer()
             }
-
         }
     }
 }
 
 struct StoryRow:View {
-    var story:Story
+    var story:Story    
     var body: some View {
         VStack(alignment: .center) {
             StoryImage()
@@ -77,7 +77,8 @@ struct StoryRow:View {
             Divider()
             StoryDetail(text:story.text)
         }
-        .padding()
+        .padding(.top)
+        .padding(.bottom)
     }
 }
 
